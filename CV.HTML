@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>叶 文婷 — 日本語教師・通訳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f0e8;
+    --paper-dark: #ede7d5;
+    --ink: #1e1b16;
+    --ink-mid: #3d3830;
+    --ink-light: #7a7060;
+    --accent: #8b6b3d;
+    --accent-light: #c9a87c;
+    --rule: #d4c9b0;
+    --white: #faf8f3;
+  }
+  /* 解决照片底部黄色边框并填满容器 */
+  .about-portrait {
+    background-color: transparent !important; /* 强制取消黄色背景 */
+    overflow: hidden;                         /* 裁剪多余部分 */
+    display: flex;                            /* 辅助对齐 */
+  }
+
+  .about-portrait img {
+    width: 100%;
+    height: 100;
+    object-fit: cover;   /* 关键：让照片填充整个方块而不变形 */
+    display: block;      /* 消除底部间隙 */
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', 'Noto Serif JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .serif { font-family: 'Cormorant Garamond', 'Noto Serif JP', serif; }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', 'Noto Serif JP', serif; font-weight: 300; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 4rem 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    background: var(--paper-dark);
+    z-index: 0;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 1;
+    padding-right: 5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-size: clamp(72px, 9vw, 110px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.3em;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  .hero-role {
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 300;
+    color: var(--ink-mid);
+    margin-bottom: 2rem;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-proposition {
+    font-size: clamp(15px, 1.4vw, 17px);
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    border-left: 2px solid var(--accent-light);
+    padding-left: 1.4rem;
+  }
+
+  .hero-proofs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .proof-tag {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .proof-tag::before {
+    content: '✦';
+    color: var(--accent);
+    font-size: 0.6rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.15rem;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
+
+  .hero-right {
+    position: relative;
+    z-index: 1;
+    padding-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-stat-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-stat {
+    padding: 1.6rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+
+  .hero-stat .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-stat .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .hero-lang-bar {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 1.6rem;
+  }
+
+  .hero-lang-bar h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1.2rem;
+  }
+
+  .lang-item {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .lang-item:last-child { margin-bottom: 0; }
+
+  .lang-name {
+    font-size: 0.82rem;
+    font-weight: 400;
+    width: 70px;
+    flex-shrink: 0;
+    color: var(--ink-mid);
+  }
+
+  .lang-track {
+    flex: 1;
+    height: 3px;
+    background: var(--rule);
+    position: relative;
+  }
+
+  .lang-fill {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background: var(--accent);
+    transition: width 1.2s ease;
+  }
+
+  .lang-level {
+    font-size: 0.68rem;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+    width: 80px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 100px 4rem; }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 120px;
+  }
+
+  .section-title {
+    font-size: clamp(36px, 4.5vw, 52px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 3.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── RESULTS / WORK ─── */
+  .results {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 100px 4rem;
+  }
+
+  .results .section-label { color: var(--accent-light); }
+  .results .section-label::after { background: #3d3830; }
+  .results .section-title { color: var(--paper); }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid #3d3830;
+  }
+
+  .result-card {
+    padding: 2.8rem 2.5rem;
+    border-right: 1px solid #3d3830;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .result-card:last-child { border-right: none; }
+
+  .result-card:hover { background: rgba(139,107,61,0.08); }
+
+  .result-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem;
+    font-weight: 300;
+    color: #3d3830;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.03em;
+  }
+
+  .result-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 0.8rem;
+  }
+
+  .result-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--paper);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .result-context,
+  .result-ownership,
+  .result-outcome {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: #a09580;
+    line-height: 1.75;
+    margin-bottom: 0.8rem;
+  }
+
+  .result-context strong,
+  .result-ownership strong,
+  .result-outcome strong {
+    font-weight: 400;
+    color: var(--paper);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .result-metric {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(139,107,61,0.2);
+    border: 1px solid rgba(201,168,124,0.3);
+    padding: 0.35rem 0.8rem;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--accent-light);
+    letter-spacing: 0.08em;
+    margin-top: 1rem;
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    background: var(--white);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-left {}
+
+  .about-portrait {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--paper-dark);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portrait-initials {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: var(--ink-light);
+    letter-spacing: 0.1em;
+  }
+
+  .about-quick-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .fact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.82rem;
+  }
+
+  .fact-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .fact-value {
+    font-weight: 400;
+    color: var(--ink-mid);
+  }
+
+  .about-right {}
+
+  .about-body {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--ink-mid);
+    margin-bottom: 2.5rem;
+  }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .pillar {
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+  }
+
+  .pillar-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .pillar h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .pillar p {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .experience {
+    background: var(--paper);
+  }
+
+  .exp-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+  }
+
+  /* Skills column */
+  .skills-column {}
+
+  .skills-group { margin-bottom: 2.8rem; }
+
+  .skills-group-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.85rem;
+  }
+
+  .skill-item:last-child { border-bottom: none; }
+
+  .skill-name { color: var(--ink-mid); font-weight: 400; }
+
+  .skill-badge {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--paper-dark);
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--rule);
+  }
+
+  /* Timeline column */
+  .timeline-column {}
+
+  .timeline-entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .timeline-entry:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .timeline-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    padding-top: 0.2rem;
+    line-height: 1.5;
+  }
+
+  .timeline-date .current {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--paper);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    padding: 0.2rem 0.5rem;
+    margin-top: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  .timeline-body {}
+
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-org {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+  }
+
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+  }
+
+  .t-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    padding: 0.2rem 0.7rem;
+    border: 1px solid var(--rule);
+  }
+
+  /* Interpreter list */
+  .interpreter-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .interp-item {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .interp-item::before {
+    content: '—';
+    color: var(--accent-light);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  /* ─── CERTS ─── */
+  .certs-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .cert-card {
+    border: 1px solid var(--rule);
+    padding: 1.8rem 1.4rem;
+    background: var(--white);
+    text-align: center;
+  }
+
+  .cert-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+
+  .cert-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+
+  .cert-detail {
+    font-size: 0.7rem;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--paper-dark);
+    padding: 100px 4rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5.5vw, 68px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 440px;
+  }
+
+  .contact-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: var(--ink-mid);
+    transition: color 0.25s;
+  }
+
+  .contact-method:first-child { border-top: 1px solid var(--rule); }
+
+  .contact-method:hover { color: var(--accent); }
+
+  .method-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    background: var(--paper);
+  }
+
+  .method-info {}
+
+  .method-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.2rem;
+  }
+
+  .method-value {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: inherit;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: var(--ink-light);
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  footer span { color: var(--accent-light); }
+
+  /* ─── DIVIDER ─── */
+  .ornament {
+    text-align: center;
+    color: var(--accent);
+    font-size: 0.9rem;
+    letter-spacing: 0.5em;
+    margin: 2rem 0;
+    opacity: 0.5;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  .hero-name    { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-role    { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-proposition { animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-proofs  { animation: fadeUp 0.7s 0.4s ease both; }
+  .hero-ctas    { animation: fadeUp 0.7s 0.5s ease both; }
+  .hero-right   { animation: fadeUp 0.7s 0.35s ease both; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 100px 1.5rem 60px;
+    }
+
+    .hero::before { display: none; }
+    .hero-left { padding-right: 0; }
+    .hero-right { padding-left: 0; }
+
+    section { padding: 70px 1.5rem; }
+    .results { padding: 70px 1.5rem; }
+    .contact { padding: 70px 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+
+    .results-grid { grid-template-columns: 1fr; }
+    .result-card { border-right: none; border-bottom: 1px solid #3d3830; }
+    .result-card:last-child { border-bottom: none; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-portrait { aspect-ratio: 1; max-width: 220px; }
+
+    .exp-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .timeline-entry { grid-template-columns: 1fr; gap: 0.5rem; }
+
+    .certs-row { grid-template-columns: 1fr 1fr; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+    .hero-stat-group { grid-template-columns: 1fr 1fr; }
+    .about-pillars { grid-template-columns: 1fr; }
+    .interpreter-list { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .certs-row { grid-template-columns: 1fr; }
+    .hero-name { font-size: 58px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">叶 文婷</a>
+  <ul class="nav-links">
+    <li><a href="#results">実績</a></li>
+    <li><a href="#about">自己紹介</a></li>
+    <li><a href="#experience">経歴</a></li>
+    <li><a href="#contact">お問合せ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-eyebrow">日本語教師・通訳</div>
+<p>ヨウ　　　　 　　　　 ブン       テイ</p>
+    <h1 class="hero-name">叶<em> 文</em>婷</h1>
+
+    <p class="hero-role">Ye Wenting — 日中言語エキスパート・教育者</p>
+
+    <p class="hero-proposition">
+      10年以上の日中バイリンガル専門家として、言語の背景にある文化的ニュアンスを捉えた高度な教育・通訳を提供。修士号（地域マネジメント）とJLPT N1 180点を武器に、留学生の目標達成を多角的に支援し、AIを融合した革新的な教育アプローチで業務効率化も実現します。
+    </p>
+
+    <div class="hero-proofs">
+      <span class="proof-tag">JLPT N1 — 180点</span>
+      <span class="proof-tag">10年以上の通訳・教育実績</span>
+      <span class="proof-tag">修士号（地域マネジメント）</span>
+      <span class="proof-tag">上海国際映画祭 通訳歴</span>
+      <span class="proof-tag">TOEIC 730 / 中国語ネイティブ</span>
+      <span class="proof-tag">AI教育ツール開発者</span>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">一緒に働く →</a>
+      <a href="#results" class="btn-secondary">実績を見る</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stat-group">
+      <div class="hero-stat">
+        <div class="number">10<sup style="font-size:1.2rem">+</sup></div>
+        <div class="label">年間の専門経験</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">N1</div>
+        <div class="label">JLPT 180点（満点）取得</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">50<sup style="font-size:1.2rem">+</sup></div>
+        <div class="label">通訳案件実績</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">3</div>
+        <div class="label">言語対応可能</div>
+      </div>
+    </div>
+
+    <div class="hero-lang-bar">
+      <h4>言語能力</h4>
+
+      <div class="lang-item">
+        <span class="lang-name">中国語</span>
+        <div class="lang-track"><div class="lang-fill" style="width:100%"></div></div>
+        <span class="lang-level">ネイティブ</span>
+      </div>
+
+      <div class="lang-item">
+        <span class="lang-name">日本語</span>
+        <div class="lang-track"><div class="lang-fill" style="width:97%"></div></div>
+        <span class="lang-level">上級 N1 180点</span>
+      </div>
+
+      <div class="lang-item">
+        <span class="lang-name">English</span>
+        <div class="lang-track"><div class="lang-fill" style="width:62%"></div></div>
+        <span class="lang-level">TOEIC 730</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED RESULTS -->
+<section class="results" id="results">
+  <div class="section-label">Featured Results</div>
+  <h2 class="section-title">厳選された実績</h2>
+
+  <div class="results-grid">
+
+    <div class="result-card">
+      <div class="result-number">01</div>
+      <div class="result-tag">教育 × テクノロジー</div>
+      <h3 class="result-title">AIテスト採点自動化システムの開発</h3>
+      <div class="result-context">
+        <strong>Background</strong>
+        さくら日本語学院にて、紙ベース採点・手動PC入力による教員の業務負担が大きいことが課題でした。
+      </div>
+      <div class="result-ownership">
+        <strong>Ownership</strong>
+        自ら主導し、AIとGoogleフォームを組み合わせた「テスト採点自動化ツール」を独自設計・開発。AIでテスト作成→生徒が回答→AIが自動採点・集計→成績簿に自動反映する一貫フローを構築しました。
+      </div>
+      <div class="result-outcome">
+        <strong>Result</strong>
+        業務効率の大幅向上・教員の採点負担削減・学習効果向上・組織全体への貢献を実現。伝統的な教育現場へのテクノロジー融合を実践しました。
+      </div>
+      <span class="result-metric">↑ 業務効率化 · AI × Education</span>
+    </div>
+
+    <div class="result-card">
+      <div class="result-number">02</div>
+      <div class="result-tag">同時通訳・舞台通訳</div>
+      <h3 class="result-title">上海国際映画祭 舞台通訳 & 中国国際輸入博覧会ブース通訳</h3>
+      <div class="result-context">
+        <strong>Background</strong>
+        国際的なハイプレッシャー環境での通訳業務。上海国際映画祭（2017年）では舞台上での即時対応が求められ、第1・2回中国国際輸入博覧会（CIIE）ではライオン・Jatroブースにて企業代表として対外発信を担いました。
+      </div>
+      <div class="result-ownership">
+        <strong>Ownership</strong>
+        舞台通訳・ブース通訳・会議通訳を単独で担当。多角的な人文学知識と文化的ニュアンス理解を駆使し、正確かつ滑らかな言語変換を提供。
+      </div>
+      <div class="result-outcome">
+        <strong>Result</strong>
+        国際舞台でのブランドコミュニケーションを成功に導く。日中バイリンガルとしての最高難度環境での実績を積み重ねました。
+      </div>
+      <span class="result-metric">国際映画祭 · CIIE ライオンブース</span>
+    </div>
+
+    <div class="result-card">
+      <div class="result-number">03</div>
+      <div class="result-tag">教育 × 進学支援</div>
+      <h3 class="result-title">留学生への個別最適化日本語教育とJLPT目標達成支援</h3>
+      <div class="result-context">
+        <strong>Background</strong>
+        さくら日本語学院（2025年4月〜現在）にて、多様な国籍・習熟度・学習目的を持つ外国人留学生を対象に日本語教育全般を担当。
+      </div>
+      <div class="result-ownership">
+        <strong>Ownership</strong>
+        生徒一人ひとりの習熟度・学習スタイルに合わせた個別指導計画を立案・実行。読み書き・会話・文法・文化指導に加え、個別指導とグループワークを積極的に導入しました。また青森中央学院大学院では助教として中国語講義・テスト指導も担当。
+      </div>
+      <div class="result-outcome">
+        <strong>Result</strong>
+        生徒がJLPT目標スコアを達成できるよう継続的にサポート。日本語能力・進学目標の双方で成果を出しています。
+      </div>
+      <span class="result-metric">JLPT 目標達成 · 個別最適化指導</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">私について</h2>
+
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="about-portrait">
+        <div class="about-portrait">
+    <img src="https://github.com/sweetpigywt/images/raw/1713122e90341f59f3b4a4a561645969866d64aa/wendy.png" alt="叶文婷的证件照" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+
+        <div class="portrait-initials"></div>
+      </div>
+      <div class="about-quick-facts">
+        <div class="fact-row">
+          <span class="fact-label">拠点</span>
+          <span class="fact-value">福岡市東区</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">学歴</span>
+          <span class="fact-value">修士号（地域マネジメント）</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">研究テーマ</span>
+          <span class="fact-value">日中通訳における難訳</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">移住可能</span>
+          <span class="fact-value">福岡市東区・新宮町・古賀市</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">日本語能力</span>
+          <span class="fact-value">JLPT N1 (180点)</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">登録教員</span>
+          <span class="fact-value">登録日本語教員（2027年取得見込）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <p class="about-body">
+        10年以上にわたり日中言語エキスパートとして活動し、青森中央学院大学院にて地域マネジメント修士号（2025年3月修了）を取得しました。比較文化研究および異文化コミュニケーションの深い知見を活かし、言語の背景にある文化的ニュアンスを捉えた高度な通訳・教育を提供してきました。
+      </p>
+      <p class="about-body">
+        上海国際映画祭や日本大手企業（サントリー・三井住友・資生堂など）での同時・逐次通訳で培った多角的な人文学知識を持ちます。現在は福岡の教育現場にて、語学指導や進学ガイダンスを通じ、留学生の目標達成を多角的に支援しています。
+      </p>
+      <p class="about-body">
+        AIツール開発による業務効率化など、伝統的な教育にテクノロジーを融合させる革新的なアプローチを得意としており、教育の未来を切り拓くことに情熱を注いでいます。
+      </p>
+
+      <div class="about-pillars">
+        <div class="pillar">
+          <span class="pillar-icon">🎓</span>
+          <h4>言語教育</h4>
+          <p>外国人留学生向け日本語教育全般。個別最適化カリキュラムとJLPT対策の専門家。</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">🗣️</span>
+          <h4>通訳・翻訳</h4>
+          <p>国際展示会・企業会議・映画祭など、多様な場面での日中逐次・同時通訳。</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">🤖</span>
+          <h4>EdTech開発</h4>
+          <p>AIとGoogleフォームを活用した採点自動化など、教育業務の効率化を実現。</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">🌏</span>
+          <h4>異文化理解</h4>
+          <p>修士研究テーマ「日中通訳における難訳」をベースに、言語の奥にある文化差を橋渡し。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE & SKILLS -->
+<section class="experience" id="experience">
+  <div class="section-label">Experience & Capability</div>
+  <h2 class="section-title">経歴 & スキル</h2>
+
+  <div class="exp-layout">
+
+    <!-- Skills -->
+    <div class="skills-column">
+
+      <div class="skills-group">
+        <div class="skills-group-title">資格・認定</div>
+        <div class="skill-item">
+          <span class="skill-name">日本語 JLPT N1</span>
+          <span class="skill-badge">180点（満点）</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">日本語教育能力検定試験</span>
+          <span class="skill-badge">合格 2023</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">登録日本語教員</span>
+          <span class="skill-badge">2027年取得見込</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">CATTI 3級 通訳・翻訳</span>
+          <span class="skill-badge">中国認定</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">上海市日本語上級通訳資格</span>
+          <span class="skill-badge">上海市認定</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">上海市日本語中級通訳資格</span>
+          <span class="skill-badge">上海市認定</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">TOEIC</span>
+          <span class="skill-badge">730点</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-group-title">ITスキル</div>
+        <div class="skill-item">
+          <span class="skill-name">Microsoft Excel</span>
+          <span class="skill-badge">活用可</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Microsoft Word</span>
+          <span class="skill-badge">活用可</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Google フォーム</span>
+          <span class="skill-badge">活用可</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">AIツール開発</span>
+          <span class="skill-badge">実績あり</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-group-title">教育・通訳専門分野</div>
+        <div class="skill-item">
+          <span class="skill-name">日本語教育（読書・会話・文法）</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">JLPT 対策指導</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">比較文化研究</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">逐次通訳・同時通訳</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">ビジネス会議通訳</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">展示会・舞台通訳</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-column">
+
+      <div class="timeline-entry">
+        <div class="timeline-date">
+          2025年4月〜現在
+          <div class="current">現職</div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-role">専任講師</div>
+          <div class="timeline-org">さくら日本語学院（福岡県福岡市）</div>
+          <div class="timeline-desc">
+            外国人留学生を対象とした日本語教育全般（読み書き・会話・文法・文化指導）を担当。生徒一人ひとりの習熟度や学習スタイルに合わせた指導計画を立案・実行し、JLPT目標スコア達成に向けた個別指導とグループワークを積極的に導入。
+          </div>
+          <div class="timeline-desc">
+            <strong style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.3rem;color:var(--accent)">開発実績</strong>
+            AIとGoogleフォームを組み合わせた「テスト採点自動化ツール」を独自に開発。AI作成テスト→生徒回答→自動採点・集計→成績簿自動反映フローを構築し、業務効率と学習効果を同時に向上。
+          </div>
+          <div class="timeline-tags">
+            <span class="t-tag">日本語教育</span>
+            <span class="t-tag">JLPT指導</span>
+            <span class="t-tag">AI開発</span>
+            <span class="t-tag">EdTech</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">2023年4月〜2025年3月</div>
+        <div class="timeline-body">
+          <div class="timeline-role">大学院・修士課程 / 助教</div>
+          <div class="timeline-org">青森中央学院大学院（青森県青森市）— 地域マネジメント学科</div>
+          <div class="timeline-desc">
+            研究テーマ「日本語の文化と日中通訳における難訳」。言葉の裏にある文化的なニュアンスを深く理解することに特化した研究を行い、修士号を取得。
+          </div>
+          <div class="timeline-desc">
+            助教として中国語授業の講義・テスト指導を担当。研究と実践指導を両立。
+          </div>
+          <div class="timeline-tags">
+            <span class="t-tag">修士号取得</span>
+            <span class="t-tag">比較文化研究</span>
+            <span class="t-tag">助教</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">2012年1月〜2020年6月</div>
+        <div class="timeline-body">
+          <div class="timeline-role">日本語講師・フリーランス通訳</div>
+          <div class="timeline-org">オンリー教育センター・欧風教育（上海）& 各社通訳</div>
+          <div class="timeline-desc">
+            上海の総合教育センターにて日本語講師として勤務。生徒の学習歴・レベル・目的に応じた教育計画・カリキュラム作成と授業実施。集団指導（10名以上）から個別指導まで幅広く対応。日本語の発音・文法・会話・読み書きに加え、日本の文化・生活習慣・歴史も指導。
+          </div>
+          <div class="timeline-desc">
+            <strong style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;color:var(--accent)">主な通訳案件（2017–2020年）</strong>
+          </div>
+          <div class="interpreter-list">
+            <div class="interp-item">上海国際映画祭 舞台通訳（2017.06）</div>
+            <div class="interp-item">MMA総合格闘会 日本語通訳（2017.06）</div>
+            <div class="interp-item">第1回中国国際輸入博覧会 Jatroブース（2018.10）</div>
+            <div class="interp-item">第2回中国国際輸入博覧会 ライオンブース（2019.11）</div>
+            <div class="interp-item">サントリー部門会議（2019.07）</div>
+            <div class="interp-item">三井住友海上損害保険 補償交渉（2017.04）</div>
+            <div class="interp-item">資生堂化粧品提案会議（2018.12）</div>
+            <div class="interp-item">杭州アリババ×三井住友グループ ビジネス会議（2019.02）</div>
+            <div class="interp-item">CMEF上海医療機器展示会（2017.05）</div>
+            <div class="interp-item">CHINA JOY 国際デジタルエンタメ展（2018.08）</div>
+            <div class="interp-item">第22回中国国際ベーキング展 司会兼通訳（2019.05）</div>
+            <div class="interp-item">Fcvc 2019 第4回国際水素自動車会議（2019.09）</div>
+            <div class="interp-item">第18回世界医薬品原料展示会（2018.06）</div>
+            <div class="interp-item">上海国際光学産業展（2019.03）</div>
+            <div class="interp-item">ミュンヘン上海光学レンズ博覧会（2019.03）</div>
+            <div class="interp-item">第15回深セン国際LED展示会（2019.09）</div>
+            <div class="interp-item">上海2018ビューティー博覧会（2018.05）</div>
+            <div class="interp-item">第24回中国美容博覧会（2019.05）</div>
+            <div class="interp-item">新国際医薬品原料フェア（2019.06）</div>
+            <div class="interp-item">中国計量機器協会×日本商工会連合会（2019.07）</div>
+            <div class="interp-item">2019年上海金型展示会（2019.06）</div>
+            <div class="interp-item">交通大学設計院&日通デザイン 建築会議（2018.06）</div>
+            <div class="interp-item">C-star 上海国際小売デザイン展（2019.04）</div>
+            <div class="interp-item">POP-Fashion & 日本代理店 協力会議（2018.10）</div>
+            <div class="interp-item">蘇州金型工場見学+会議（2018.10）</div>
+            <div class="interp-item">中国CBME マタニティ&幼児展（2018.07）</div>
+            <div class="interp-item">航空経済連合会夕食会（2019.04）</div>
+            <div class="interp-item">水質検査機器関連会議 多数</div>
+            <div class="interp-item">新エネルギー商用車展示会（2019.12）</div>
+            <div class="interp-item">自動車部品工場・自動車関連展示会 多数</div>
+            <div class="interp-item">エステ・美容系コース通訳 多数</div>
+            <div class="interp-item">Shanghai Infield Trading 取締役会（2018.12）</div>
+          </div>
+          <div class="timeline-tags" style="margin-top:1.2rem">
+            <span class="t-tag">逐次通訳</span>
+            <span class="t-tag">同時通訳</span>
+            <span class="t-tag">ブース通訳</span>
+            <span class="t-tag">舞台通訳</span>
+            <span class="t-tag">ビジネス会議</span>
+            <span class="t-tag">日本語講師</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Certs row -->
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="certs-row">
+    <div class="cert-card">
+      <span class="cert-icon">🏅</span>
+      <div class="cert-name">JLPT N1</div>
+      <div class="cert-detail">180点（満点）取得</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-icon">📜</span>
+      <div class="cert-name">日本語教育能力検定試験</div>
+      <div class="cert-detail">2023年12月 合格</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-icon">🇨🇳</span>
+      <div class="cert-name">CATTI 3級</div>
+      <div class="cert-detail">中国 通訳・翻訳資格</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-icon">🌆</span>
+      <div class="cert-name">上海市日本語上級通訳資格</div>
+      <div class="cert-detail">上海市認定</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label">Contact</div>
+      <h2 class="contact-headline">
+        一緒に<br><em class="serif" style="font-style:italic;color:var(--accent)">働きましょう</em>
+      </h2>
+      <p class="contact-sub">
+        日本語教育・日中通訳・EdTechプロジェクトでのご協力やご相談をお待ちしております。まずはお気軽にご連絡ください。
+      </p>
+      <div class="contact-ctas">
+        <a href="mailto:wenty_y@hotmail.com" class="btn-primary">メールを送る →</a>
+        <a href="tel:+819038361474" class="btn-secondary">電話する</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-methods">
+
+        <a href="mailto:wenty_y@hotmail.com" class="contact-method">
+          <div class="method-icon">✉️</div>
+          <div class="method-info">
+            <div class="method-label">Email</div>
+            <div class="method-value">wenty_y@hotmail.com</div>
+          </div>
+        </a>
+
+        <a href="tel:+819038361474" class="contact-method">
+          <div class="method-icon">📞</div>
+          <div class="method-info">
+            <div class="method-label">Phone</div>
+            <div class="method-value">090-3836-1474</div>
+          </div>
+        </a>
+
+        <a href="https://line.me/ti/p/QQ17Cz-yW_" target="_blank" rel="noopener" class="contact-method">
+          <div class="method-icon">💬</div>
+          <div class="method-info">
+            <div class="method-label">LINE</div>
+            <div class="method-value">LINEで連絡する →</div>
+          </div>
+        </a>
+
+        <div class="contact-method" style="cursor:default;pointer-events:none">
+          <div class="method-icon">📍</div>
+          <div class="method-info">
+            <div class="method-label">Location</div>
+            <div class="method-value">福岡市東区美和台新町（移住対応可）</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>叶 文婷</span>
+  <span style="color:var(--ink-light)">日本語教師 · 日中通訳エキスパート · 福岡</span>
+  <span>© 2026</span>
+</footer>
+
+</body>
+</html>
